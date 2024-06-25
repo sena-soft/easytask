@@ -10,12 +10,24 @@
         />
       </li>
     }
+    <li>
+      <app-card>
+        <button (click)="onStartAddUser()"> 
+            Add new User +
+        </button>
+        
+    </app-card>
+    </li>
     
   </ul>
   @if (selectedUser) {
     <app-tasks [name]="selectedUser.name" [userId]="selectedUser.id" />
   } @else {
-    <p>Selecct one to see the task list</p>
+    <p>Tasks management without friction</p>
   }
 
 </main>
+
+@if (isAddingUser) {
+  <app-new-user (close)="onCloseAddUser()" />
+}
